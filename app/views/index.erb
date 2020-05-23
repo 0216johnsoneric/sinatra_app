@@ -1,9 +1,26 @@
-<div class=one>
-<h1>Welcome to Sinatra Web Recipes!</h1>
-<p>Please Sign in or Sign up below:</p>
-</div>
-
-<nav>
+<style>
+body{
+    background-image: url(https://pbs.twimg.com/media/BqmeIiOCYAAXWgk.jpg)
+}
+h1{
+    text-align: center;
+    color: lightblue;
+}
+nav.one{
+    text-align: center;
+    font-size: 30px;
+}
+p.one{
+    color: white;
+    font-size: 25px;
+}
+</style>
+<body>
+<%# <h1>Welcome to Sinatra Web Recipes!</h1> %>
+<%# <p class=one>Please Sign in or Sign up below:</p> %>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+<nav class=one>
+<p class=one>Please Sign in or Sign up below:</p>
   <% if is_logged_in? %>
 
     <a href="/recipes/new"> Create Recipe </a>
@@ -16,3 +33,4 @@
   <%end %>
 
 </nav>
+</body>
