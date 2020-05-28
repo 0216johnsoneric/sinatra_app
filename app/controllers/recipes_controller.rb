@@ -42,60 +42,49 @@ class RecipesController < ApplicationController
         end
     end
 
-    # get '/recipes/:id/edit' do
-    #     if is_logged_in?
-    #     @user = current_user
-    #     @recipe = Recipe.find_by_id(params[:id])
-    #         if @recipe.user 
-    #         # binding.pry
-    #             erb :"recipes/edit_recipe"
-    #         else
-    #             redirect to '/recipes'
-    #          end
-    #     else
-    #         redirect to '/recipes'
-    #     end
-    # end
+    get '/recipes/:id/edit' do
+        @recipe = Recipe.find_by_id(params[:id])
+        if is_logged_in? 
+            erb :'/recipes/edit'
+        else
+            redirect 'login'
+        end
+    end
+
+    patch '/recipes/:id/edit' do
+        @recipe = Recipe.find_by_id(params[:id])
+        @user = current_user
+        if !params[:content].empty? 
+            @recipe.update(:name => params[:name], :content => params[:content])
+            @recipe.save
+            redirect "recipes/#{@recipe[:id]}"
+        else 
+            redirect "recipes/#{@recipe[:id]}/edit"
+        end
+    end
+
+    post '/recipes/:id/delete' do
+        @recipe = Recipe.find_by_id(params[:id])
+        if is_logged_in?
+            @recipe.delete
+            redirect to '/recipes'
+        else
+            redirect to "/recipes/#{params[:id]}"
+        end
+    end
 end
 
-    # get '/recipes/:id/edit' do
-    #     @recipe = Recipe.find_by_id(params[:id])
-    #     if is_logged_in? && @recipe.user == current_user
-    #         erb :'recipes/edit_recipe'
-    #     else
-    #         redirect '/login'
-    #     end
-    # end
+ 
 
-
-    # patch '/recipes/:id/edit' do
+  
+    # delete '/recipes/:id' do #destroy action
     #     @recipe = Recipe.find_by_id(params[:id])
-    #     @user = current_user
-    #     if !params[:content].empty? 
-    #         @recipe.update(:content => params[:content])
-    #         @recipe.save
-    #         redirect "recipes/#{@recipe[:id]}"
-    #     else 
-    #         redirect "recipes/#{@recipe[:id]}/edit"
-    #     end
+    #     @recipe.delete
+    #     redirect to '/recipes'
     # end
 
 
 
-#     patch '/recipes/:id/edit' do
-#         @recipe = Recipe.find_by(id: params[:id])
-#         @recipe.name = params[:cause][:name]
-#         @cause.description = params[:cause][:description]
-#         @cause.funding = params[:cause][:funding]
-#         if params[:cause][:category_id]
-#       @cause.category_id = params[:cause][:category_id]
-#     else
-#       @cause.category = Category.find_or_create_by(name: params[:new_category].capitalize)
-#     end
 
-#     if @cause.save
-#       redirect to "/cause/#{@cause.id}"
-#     else
-#       erb :"causes/show", locals: {message: "The cause wasn't updated."}
-#     end
-#   end
+
+

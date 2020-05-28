@@ -1,21 +1,19 @@
-<h1>Welcome, <%= current_user.username%></h1> 
+<h1>Hello, <%= current_user.username%> !</h1> 
+<h2>Your Personal Recipe Menu:</h2>
 <br></br>
-<table>
+
     <% @recipes.each do |recipe| %>
-        <tr>
-        <h2><th>Name</th></h2>             
-        <td><%= recipe.name %></td>
-        </tr>
-        <tr>
-        <h2><th>Ingredients</th></h2>       
-        <td><%= recipe.content %></td>
-        </tr>
-        <% end %>
-</table>
+        
+        <h3>Name</h3>           
+        <%= recipe.name %>
+        <h3>Ingredients</h3> 
+        <%= recipe.content %>
+        <a href="/recipes/<%=recipe.id%>">View Recipe</a>
+    <% end %>
+
 <br></br>
 <br></br>
 <a href="/recipes/new"><button>New Recipe</button></a>
-<a href="/recipes/id"><button>View Recipe</button></a>
 <a href='/'><button>Homepage</button></a>
 <a href="/logout"><button>Log Out</button></a>
 
