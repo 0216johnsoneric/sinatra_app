@@ -1,17 +1,18 @@
 <h1>New Recipe!</h1>
 
 <form method='post' action='/recipes'>
-<fieldset>
 <ol>
-<li><label for="name">Name</label></li>
+<li>
+<label for="name">Name</label>
 <input type='text' name='name' id='name'></input>
-
-<li><label for="content">Ingredients</label><li>
+</li><br></br>
+<li>
+<label for="content">Ingredients</label>
 <textarea rows="10" columns="50" name="content" id="content" ></textarea>
+</li>
 </ol>
-</fieldset>
 <%# <input type='text' name='name' id='name'> %>
 <input type='submit' id='submit' value='submit'></input>
 </form>
 
-<a href="/">Hompepage</a>
+<a href="/"><button>Homepage</button></a>
