@@ -1,12 +1,12 @@
 <h1>Hello, <%= current_user.username%> !</h1> 
-<h2>Your Personal Recipe Menu:</h2>
+<h3>Your Personal Recipe Menu:</h3>
 <br></br>
 
     <% @recipes.each do |recipe| %>
         
-        <h3>Name</h3>           
+        <h4>Name</h4>           
         <%= recipe.name %>
-        <h3>Ingredients</h3> 
+        <h4>Ingredients</h4> 
         <%= recipe.content %>
         <a href="/recipes/<%=recipe.id%>">View Recipe</a>
     <% end %>
