@@ -2,9 +2,47 @@
 
   <form method="POST" action="/recipes/<%= @recipe.id %>/edit">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <label for="name">Name</label>
+  <ol>
+  <li>
+  <h3>Name</h3>
+  <label for="name"></label>
   <input type="text" id="name" name="name" value="<%=@recipe.name%>">
-  <label for="content">Ingredients</label>
+  </li>
+  <li>
+  <h3>Description</h3>
+  <label for="content"></label>
   <textarea type="text" name="content" rows="5" cols="30"><%= @recipe.content %></textarea><br>
+  </li>
+  <li>
+  <h3>Ingredients</h3>
+  <label for="ingredient_table" name="ingredient_table"></label>
+  <table id="ingredient_table"> 
+    <th>Ingredient</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+    <tr>
+      <td><input type="text" name="item"></td>
+      <td><input type="text" name="quantity"></td>
+      <td><input type="text" name="unit"></td>
+    </tr>
+    <button type="button" onclick="addIngredient()">Add ingredient</button>
+    </li>
+    </ol>
+    <br></br>
+  
   <input type="submit" value="submit">
   </form>
+ <a href="/recipes"><button>Back to Recipes</button></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+function addIngredient() {
+  $("#ingredient_table").append(
+      "<tr>" +
+        "<td><input type=\"text\" name=\"recipe[item]\"></td>" +
+        "<td><input type=\"text\" name=\"recipe[quantity]\"></td>" +
+        "<td><input type=\"text\" name=\"recipe[unit]\"></td>" +
+      "</tr>"
+  );
+}
+</script>

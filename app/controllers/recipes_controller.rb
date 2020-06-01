@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     post '/recipes' do
         @user = current_user
         if !params[:content].empty?
-            @recipe = Recipe.create(:name=>params[:name], :content=>params[:content], user: @user)
+            @recipe = Recipe.create(:name=>params[:name], :content=>params[:content], :item=>params[:item], :quantity=>params[:quantity], :unit=>params[:unit], user: @user)
             @user.recipes << @recipe
             @user.save
             redirect to "/recipes"
@@ -55,7 +55,7 @@ class RecipesController < ApplicationController
         @recipe = Recipe.find_by_id(params[:id])
         @user = current_user
         if !params[:content].empty? 
-            @recipe.update(:name => params[:name], :content => params[:content])
+            @recipe.update(:name => params[:name], :content => params[:content], :item=>params[:item], :quantity=>params[:quantity], :unit=>params[:unit])
             @recipe.save
             redirect "recipes/#{@recipe[:id]}"
         else 

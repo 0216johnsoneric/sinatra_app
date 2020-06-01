@@ -1,7 +1,14 @@
 <h1><%=@user.username%></h1>
 <h2>Here is your Recipe!</h2>
-<h3><%=@recipe.name%></h3>
-<h3><%=@recipe.content%></h3>
+<h3>Name</h3>
+<h5><%=@recipe.name%></h5>
+<h3>Content</h3>
+<h5><%=@recipe.content%></h5>
+<h3>Ingredients</h3>
+<h4>Item:</h4><h5><%=@recipe.item%></h5>
+<h4>Quantity:</h4><h5><%=@recipe.quantity%></h5>
+<h4>Units:</h4><h5><%=@recipe.unit %></h5>
+
 
 
 <form method="POST" action="/recipes/<%= @recipe.id %>/delete">

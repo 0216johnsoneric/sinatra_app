@@ -6,10 +6,19 @@
         
         <h4>Name</h4>           
         <%= recipe.name %>
-        <h4>Ingredients</h4> 
+        <h4>Description</h4> 
         <%= recipe.content %>
+        <h4>Ingredients</h4>
+        <h5>Item</h5>
+        <%= recipe.item %>
+        <h5>Quantity</h5>
+        <%= recipe.quantity %>
+        <h5>Unit</h5>
+        <%= recipe.unit %>
+        <br></br>
         <a href="/recipes/<%=recipe.id%>">View Recipe</a>
-    <% end %>
+     <%end%>
+
 
 <br></br>
 <br></br>

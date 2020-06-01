@@ -16,6 +16,9 @@ ActiveRecord::Schema.define(version: 2020_05_23_235702) do
     t.string "name"
     t.text "content"
     t.integer "user_id"
+    t.string "item"
+    t.integer "quantity"
+    t.string "unit"
   end
 
   create_table "users", force: :cascade do |t|

@@ -4,6 +4,9 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :content
       t.integer :user_id
+      t.string :item
+      t.integer :quantity
+      t.string :unit
     end
   end
 end
