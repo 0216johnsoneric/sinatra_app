@@ -4,6 +4,5 @@ fruit_smoothie = Recipe.create(:name => "Banana Fruit Smoothie", :content => "In
 # fruit_smoothie.Recipe.create(:item => "Bananas", :quantity => 3)
 # fruit_smoothie.Recipe.create(:item => "Honey", :quantity => 1, :unit => "Tablespoon")
 # fruit_smoothie.Recipe.create(:item => "Ice", :quantity => 2, :unit => "Cups")
-# fruit_smoothie.creator = eric
 fruit_smoothie.save
 

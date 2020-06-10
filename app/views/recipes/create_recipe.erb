@@ -1,22 +1,32 @@
+<style>
+  body{
+      background-image: url(https://previews.123rf.com/images/vicushka/vicushka1602/vicushka160200213/52823712-fresh-seasonal-organic-vegetables-salad-preparation-with-dressings-ingredients-cutlery-and-kitchen-c.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+  }
+
+  nav.menu {
+     color: black;
+  }
+</style> 
 <h1>Create New Recipe!</h1>
 
-<form method='post' action='/recipes'>
-<ol>
-<li>
+<nav class=menu>
+<form method='post' action='/recipes' class='one'>
+
 <h3>Name</h3>
 <label for="name"></label>
 <input type='text' name='name' id='name'></input>
-</li><br></br>
-<li>
-<h3>Description</h3>
+<br></br>
+
+<h3>Instructions</h3>
 <label for="content"></label>
 <textarea rows="10" columns="50" name="content" id="content" ></textarea>
-</li>
-<li>
-<h3>Ingredients</h3>
 
-  <table id="ingredient_table">
-    <th>Ingredient</th>
+<h3>Ingredients</h3>
+  <table id="ingredient_table" class=table>
+    <th>Item</th>
     <th>Quantity</th>
     <th>Unit</th>
     <tr>
@@ -25,13 +35,12 @@
       <td><input type="text" name="unit"></td>
     </tr>
     <button type="button" onclick="addIngredient()">Add Ingredient</button>
-</li>
-</ol>
- 
+    
 <%# <input type='text' name='name' id='name'> %>
 <input type='Submit' id='Submit' value='Submit'></input>
-</form>
 
+</form>
+</nav>
 <%# <a href="/recipes"><button>Back to Recipes</button></a>
 <a href="/"><button>Homepage</button></a> %>
 
@@ -48,3 +57,4 @@ function addIngredient() {
   );
 }
 </script>
+<%# </form> %>

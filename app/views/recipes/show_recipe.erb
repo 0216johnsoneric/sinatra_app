@@ -1,8 +1,21 @@
+<style>
+  body{
+      background-image: url(https://previews.123rf.com/images/vicushka/vicushka1602/vicushka160200213/52823712-fresh-seasonal-organic-vegetables-salad-preparation-with-dressings-ingredients-cutlery-and-kitchen-c.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+  }
+
+  nav.menu {
+     color: black;
+  }
+</style>
+<nav class=menu>
 <h1><%=@user.username%></h1>
 <h2>Here is your Recipe!</h2>
 <h3>Name</h3>
 <h5><%=@recipe.name%></h5>
-<h3>Content</h3>
+<h3>Instructions</h3>
 <h5><%=@recipe.content%></h5>
 <h3>Ingredients</h3>
 <h4>Item:</h4><h5><%=@recipe.item%></h5>
@@ -17,4 +30,4 @@
 <br></br>
 <a href="/recipes"><button>Back to Recipes</button></a>
 <a href="<%= @recipe.id %>/edit"><button>Edit Recipe</button></a>
-
+</nav>

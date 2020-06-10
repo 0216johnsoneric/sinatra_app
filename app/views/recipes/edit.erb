@@ -1,22 +1,32 @@
- <h1>Edit Your Recipe</h1>
+<style>
+  body{
+      background-image: url(https://previews.123rf.com/images/vicushka/vicushka1602/vicushka160200213/52823712-fresh-seasonal-organic-vegetables-salad-preparation-with-dressings-ingredients-cutlery-and-kitchen-c.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+  }
 
+  nav.menu {
+     color: black;
+  }
+</style> 
+ 
+ <h1>Edit Your Recipe</h1>
+<nav class=menu>
   <form method="POST" action="/recipes/<%= @recipe.id %>/edit">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <ol>
-  <li>
+  
   <h3>Name</h3>
   <label for="name"></label>
   <input type="text" id="name" name="name" value="<%=@recipe.name%>">
-  </li>
-  <li>
-  <h3>Description</h3>
+  
+  <h3>Instructions</h3>
   <label for="content"></label>
   <textarea type="text" name="content" rows="5" cols="30"><%= @recipe.content %></textarea><br>
-  </li>
-  <li>
+  
   <h3>Ingredients</h3>
   <label for="ingredient_table" name="ingredient_table"></label>
-  <table id="ingredient_table"> 
+  <table class=table id="ingredient_table"> 
     <th>Ingredient</th>
     <th>Quantity</th>
     <th>Unit</th>
@@ -25,14 +35,14 @@
       <td><input type="text" name="quantity"></td>
       <td><input type="text" name="unit"></td>
     </tr>
-    <button type="button" onclick="addIngredient()">Add ingredient</button>
-    </li>
-    </ol>
+    <button type="button" onclick="addIngredient()">Add Ingredient</button>
+    
     <br></br>
   
-  <input type="submit" value="submit">
+  <input type="Submit" value="Submit">
   </form>
  <a href="/recipes"><button>Back to Recipes</button></a>
+ </nav>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
