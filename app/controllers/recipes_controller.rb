@@ -44,7 +44,7 @@ class RecipesController < ApplicationController
 
     get '/recipes/:id/edit' do
         @recipe = Recipe.find_by_id(params[:id])
-        if is_logged_in? 
+        if is_logged_in? && @recipe.user_id == current_user.id
             erb :'/recipes/edit'
         else
             redirect 'login'
@@ -65,7 +65,7 @@ class RecipesController < ApplicationController
 
     post '/recipes/:id/delete' do
         @recipe = Recipe.find_by_id(params[:id])
-        if is_logged_in?
+        if is_logged_in? && @recipe.user_id == current_user.id
             @recipe.delete
             redirect to '/recipes'
         else
