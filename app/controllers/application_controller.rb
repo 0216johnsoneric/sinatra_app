@@ -1,5 +1,5 @@
 require './config/environment'
-require 'pry'
+require 'sinatra/flash'
 class ApplicationController < Sinatra::Base
 
     configure do

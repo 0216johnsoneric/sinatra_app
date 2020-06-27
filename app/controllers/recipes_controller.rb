@@ -1,4 +1,5 @@
 require 'pry'
+require 'sinatra/flash'
 class RecipesController < ApplicationController
 
     get '/recipes' do

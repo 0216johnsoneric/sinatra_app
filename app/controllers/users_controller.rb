@@ -1,15 +1,18 @@
+require 'sinatra/flash'
 class UsersController < ApplicationController
    
     get '/signup' do
         if is_logged_in?
-        redirect '/recipes'
+            # flash[:message] = "You were already logged in. Here are your reviews."
+            redirect '/recipes'
         else
-        erb :'/users/signup'
+            erb :'/users/signup'
         end
     end
 
     post '/signup' do
         if params[:username] == "" || params[:email] == "" || params[:password] == ""
+            # flash[:message] = "In order to sign up for account, you must have both a username & a password. Please try again."
             redirect '/signup'
         else
             user = User.create(:username => params["username"], :email => params["email"], :password => params["password"])
